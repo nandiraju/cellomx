@@ -73,7 +73,7 @@ body {
 
 #final-cta {
   position: fixed;
-  bottom: 10%;
+  bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -84,13 +84,34 @@ body {
   transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), visibility 1s;
   
   /* Glass Effect */
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 4rem 6rem;
-  border-radius: 40px;
+  padding: 1.5rem 6rem;
+  border-radius: 100px; /* Pillow/Bar shape */
+  width: 90%;
+  max-width: 1000px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+#final-cta h1 {
+    font-size: 2.5rem !important;
+    margin-bottom: 0 !important;
+    white-space: nowrap;
+}
+
+#final-cta .tagline {
+    margin-top: 0 !important;
+    white-space: nowrap;
+}
+
+#final-cta .btn {
+    margin-top: 0 !important;
 }
 
 #final-cta.visible {
@@ -129,13 +150,20 @@ body {
   opacity: 0.6;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+  #final-cta {
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1rem;
+    border-radius: 30px;
+    width: 95%;
+  }
   #final-cta h1 {
-    font-size: 2.5rem !important;
+    font-size: 2rem !important;
   }
   #sticky-logo {
-    width: 80px;
-    bottom: 1.5rem;
-    right: 1.5rem;
+    width: 60px;
+    bottom: 1rem;
+    right: 1rem;
   }
 }
