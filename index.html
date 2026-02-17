@@ -3,8 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CelloMx | The Puzzle of Life, Finally Assembled</title>
-    <meta name="description" content="CelloMx integrates advanced biotechnology with AI-driven bioinformatics to deliver the complete picture of the cell.">
+    <title>CelloMx | The Future of Single-Cell Multi-Omics Assembled</title>
+    <meta name="description" content="CelloMx integrates best-in-breed genomic technologies with proprietary AI to create the ultimate single-cell solution.">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cellomx.com/">
+    <meta property="og:title" content="CelloMx | The Puzzle of Life, Finally Assembled">
+    <meta property="og:description" content="Integrating advanced glass-bead capture systems and AI-driven bioinformatics for a complete cellular picture.">
+    <meta property="og:image" content="https://cellomx.com/assets/cellomx.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://cellomx.com/">
+    <meta property="twitter:title" content="CelloMx | Life Assembled">
+    <meta property="twitter:description" content="A visual journey through single-cell multi-omics.">
+    <meta property="twitter:image" content="https://cellomx.com/assets/cellomx.webp">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -13,62 +29,22 @@
 <body>
 
     <div class="bg-container">
-        <video id="hero-video" class="bg-image" src="assets/cellomx.mp4" muted playsinline preload="auto"></video>
+        <canvas id="animation-canvas"></canvas>
         <div class="bg-overlay"></div>
     </div>
 
-    <main class="content-wrapper">
-        <!-- Hero Section -->
-        <section id="hero">
-            <h1 class="reveal">The Puzzle of Life,<br>Finally Assembled.</h1>
-            <p class="sub-headline reveal">We bring together best-in-breed components with proprietary AI to create the ultimate single-cell solution.</p>
-            <div class="glass-card reveal">
-                <p>Introducing <strong>CelloMx</strong>. We aren't just another biotech provider; we are the assemblers of the future. By integrating the industry's most advanced technologies with our own glass-bead capture systems and AI-driven bioinformatics, we deliver the complete picture of the cell.</p>
-                <a href="#waitlist" class="btn btn-primary">Assemble Your Research</a>
-            </div>
-        </main>
+    <!-- Scroller to drive the animation -->
+    <div id="scroller"></div>
 
-        <!-- Visionary Section -->
-        <section id="vision">
-            <h2 class="reveal">We Curate the Best.<br>We Engineer the Rest.</h2>
-            <div class="reveal">
-                <p>True innovation isn't about reinventing the wheel—it's about making it turn faster. At CelloMx, we have curated a master puzzle of the world’s leading genomic technologies (including components from innovators like BioScrybe, Takara, and Twist NeoBiotechnology).</p>
-                <p><strong>The CelloMx Difference:</strong> We add the missing piece: The Glue. Through our proprietary chemistry and AI-driven pipeline, we bind these best-in-class components into a seamless, end-to-end platform.</p>
-            </div>
-        </section>
+    <!-- Sticky Logo -->
+    <img src="assets/logo.svg" id="sticky-logo" alt="CelloMx Logo">
 
-        <!-- Product Section -->
-        <section id="products">
-            <h2 class="reveal">Two Kits. Infinite Insights.</h2>
-            <p class="reveal">Precision medicine requires precision tools. CelloMx is preparing to launch two flagship solutions designed to accelerate your delivery:</p>
-            
-            <div class="product-grid">
-                <div class="product-card reveal">
-                    <h3>The CelloMx CTC Kit</h3>
-                    <p>Featuring advanced glass bead technology for superior Circulating Tumor Cell capture.</p>
-                </div>
-                <div class="product-card reveal">
-                    <h3>The CelloMx Multi-Omics Kit</h3>
-                    <p>A unified panel for simultaneous single-cell DNA, RNA, and Protein analysis.</p>
-                </div>
-            </div>
-
-            <div class="glass-card reveal" style="margin-top: 3rem;">
-                <p>Powered by our own custom panels and a proprietary AI-enabled bioinformatics pipeline, we take the scattered pieces of genomic data and assemble them into a clear, actionable result.</p>
-            </div>
-        </section>
-
-        <!-- Final CTA Section -->
-        <section id="waitlist" class="stay-tuned">
-            <h2 class="reveal">Coming Soon</h2>
-            <p class="reveal">The CelloMx End-to-End Ecosystem.</p>
-            <div class="reveal" style="margin: 2rem 0;">
-                <button class="btn btn-primary">Join the CelloMx Waitlist</button>
-            </div>
-            <p class="tagline reveal">CelloMx: Best-in-Class. Assembled.</p>
-            <h1 class="reveal" style="font-size: 4rem; margin-top: 4rem; opacity: 0.8;">Stay Tuned</h1>
-        </section>
-    </main>
+    <!-- Final CTA Section (Subtle overlay at the end) -->
+    <div id="final-cta">
+        <h1 style="font-size: 4rem; opacity: 0.8; margin-bottom: 0.5rem;">Stay Tuned</h1>
+        <p class="tagline">CelloMx: Best-in-Class. Assembled.</p>
+        <button class="btn btn-primary" style="margin-top: 2rem;">Join the Waitlist</button>
+    </div>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>

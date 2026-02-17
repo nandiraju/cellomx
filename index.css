@@ -4,10 +4,8 @@
   --accent: #ec4899;
   --background: #030712;
   --foreground: #f9fafb;
-  --card-bg: rgba(255, 255, 255, 0.03);
-  --card-border: rgba(255, 255, 255, 0.1);
   --glass: rgba(15, 23, 42, 0.7);
-  --font-main: "Outfit", sans-serif;
+  --font-main: 'Outfit', sans-serif;
 }
 
 * {
@@ -30,15 +28,17 @@ body {
   left: 0;
   width: 100%;
   height: 100vh;
-  z-index: -1;
-  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background);
 }
 
-.bg-image {
-  width: 100%;
-  height: 100%;
+#animation-canvas {
+  width: 100vw;
+  height: 100vh;
   object-fit: cover;
-  filter: brightness(0.4) saturate(1.2);
 }
 
 .bg-overlay {
@@ -47,72 +47,55 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(
-    circle at center,
-    transparent 0%,
-    rgba(3, 7, 18, 0.8) 100%
-  );
+  background: transparent;
+  pointer-events: none;
+  z-index: 2;
 }
 
-.content-wrapper {
+#scroller {
+  height: 1000vh; /* Deep scroll for cinematic feel */
   position: relative;
-  z-index: 1;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  z-index: 0;
 }
 
-section {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 4rem 0;
+/* Sticky Logo with transparency and slow animation */
+#sticky-logo {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 120px;
+  height: auto;
+  z-index: 100;
+  opacity: 0.5;
+  pointer-events: none;
+  filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.3));
 }
 
-/* Typography */
-h1 {
-  font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-  background: linear-gradient(to right, #fff, var(--primary));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+#final-cta {
+  position: fixed;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 10;
+  pointer-events: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), visibility 1s;
+  
+  /* Glass Effect */
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4rem 6rem;
+  border-radius: 40px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
-h2 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: #fff;
-}
-
-.sub-headline {
-  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-  color: rgba(255, 255, 255, 0.8);
-  max-width: 800px;
-  margin-bottom: 2rem;
-}
-
-p {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.7);
-  max-width: 700px;
-  margin-bottom: 1.5rem;
-}
-
-/* Components */
-.glass-card {
-  background: var(--glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--card-border);
-  border-radius: 24px;
-  padding: 3rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+#final-cta.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
 .btn {
@@ -134,59 +117,25 @@ p {
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.05);
   box-shadow: 0 15px 30px rgba(99, 102, 241, 0.5);
-}
-
-/* Feature Grid */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, min-minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.product-card {
-  padding: 2.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.product-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-  transform: translateY(-10px);
-  border-color: var(--primary);
-}
-
-.product-card h3 {
-  color: var(--primary);
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-}
-
-/* Footer / Stay Tuned */
-.stay-tuned {
-  text-align: center;
-  padding: 10vh 0;
 }
 
 .tagline {
   font-style: italic;
   font-weight: 300;
   letter-spacing: 2px;
-  margin-top: 2rem;
+  margin-top: 1rem;
   opacity: 0.6;
 }
 
-/* Animations */
-.reveal {
-  opacity: 0;
-}
-
 @media (max-width: 768px) {
-  section {
-    padding: 2rem 0;
+  #final-cta h1 {
+    font-size: 2.5rem !important;
+  }
+  #sticky-logo {
+    width: 80px;
+    bottom: 1.5rem;
+    right: 1.5rem;
   }
 }
