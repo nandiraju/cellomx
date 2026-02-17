@@ -39,7 +39,6 @@ body {
   height: 100%;
   object-fit: cover;
   filter: brightness(0.4) saturate(1.2);
-  transform: scale(1.1);
 }
 
 .bg-overlay {
@@ -79,6 +78,7 @@ h1 {
   margin-bottom: 1.5rem;
   background: linear-gradient(to right, #fff, var(--primary));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
